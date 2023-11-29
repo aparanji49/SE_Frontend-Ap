@@ -52,9 +52,9 @@ function Register() {
       <main>
 <div className="container loginDiv">
     <div className="container mt-4" >
-            <h1>User Registation</h1>
+            <h3>User Registration</h3>
     
-    <form>
+    <form className="register-form">
         <div className="form-group">
           <label>User name</label>
           <input type="text"  className="form-control" id="username" placeholder="Enter Name" required
@@ -68,7 +68,7 @@ function Register() {
         </div>
 
         <div className="form-group">
-          <label>email</label>
+          <label>Email</label>
           <input type="email"  className="form-control" id="email" placeholder="Enter Email" required
           
           value={email}
@@ -81,7 +81,7 @@ function Register() {
         </div>
 
         <div className="form-group">
-            <label>password</label>
+            <label>Password</label>
             <input type="password"  className="form-control" id="password" placeholder="Enter password" required
             
             value={password}
@@ -92,7 +92,7 @@ function Register() {
             />
           </div>
 
-        <button type="submit" className="btn btn-primary mt-4" onClick={save} >Save</button>
+        <button type="submit" className="btn btn-primary mt-4" onClick={save} >Register</button>
        
       </form>
     </div>

@@ -9,6 +9,7 @@ import {useEffect, useState} from "react";
 import AppHeader from "./components/AppHeader";
 import AppFooter from "./components/AppFooter";
 import Responses from "./components/Responses";
+import PredefinedHostForm from "./components/PredefinedHostForm";
 
 function App() {
   const {catId} = useParams();

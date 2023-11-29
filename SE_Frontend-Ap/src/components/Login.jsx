@@ -71,7 +71,8 @@ function Login() {
             <p class="lead">Enhancing communication between hosts and invitees, providing a centralized view of responses, simplifying the entire process.</p></div>
     </div>
     <div className="col-sm-4">
-    <form>
+    <form className="login-form">
+    <h3>User Login</h3>
         <div className="form-group">
           <label>Email</label>
           <input type="email"  className="form-control" id="email" placeholder="Enter Name"
@@ -86,7 +87,7 @@ function Login() {
         </div>
 
         <div className="form-group">
-            <label>password</label>
+            <label>Password</label>
             <input type="password"  className="form-control" id="password" placeholder="Enter Fee"
             
             value={password}
@@ -96,7 +97,7 @@ function Login() {
             
             />
           </div>
-                  <button type="submit" className="btn btn-primary" onClick={login} >Login</button>
+                  <button type="submit" id="login-btn" className="btn btn-primary" onClick={login} >Login</button>
               </form>
     </div>
 </div>

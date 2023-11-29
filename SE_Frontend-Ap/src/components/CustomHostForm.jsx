@@ -21,18 +21,18 @@ const CustomHostForm = () => {
         customMessage: '',
 
 
-            question1: false,
-            question2: false,
-            question3: false,
-            question4: false,
-            question5: false,
+        question1: false,
+        question2: false,
+        question3: false,
+        question4: false,
+        question5: false,
 
         customQuestion: '',
         eventDetails: '',
         invitationImageUrl: '',
     });
 
-  
+
 
     const handleImageUpload = async (e) => {
         const file = e.target.files[0];
@@ -47,12 +47,12 @@ const CustomHostForm = () => {
         }
     };
 
-// Logic to handle image selection  
-    const handleImageSelection = (themeUrl,index) => {
+    // Logic to handle image selection  
+    const handleImageSelection = (themeUrl, index) => {
         setFormData({ ...formData, invitationImageUrl: themeUrl });
         setSelectedTile((prevSelectedTile) => (prevSelectedTile === index ? null : index));
         //console.log(themeUrl);
-    };
+    };
 
     const handleInputChange = (e) => {
         const { name, value, type, checked } = e.target;
@@ -60,9 +60,9 @@ const CustomHostForm = () => {
         setFormData(prevFormData => ({
             ...prevFormData,
             [name]: type === 'checkbox' ? checked : value
-        }));
+        }));
     };
-    
+
     const navigate = useNavigate();
     const [selectedFile, setSelectedFile] = useState(null);
 
@@ -94,10 +94,10 @@ const CustomHostForm = () => {
     const [selectedTile, setSelectedTile] = useState(null);
 
     const changeBorderColor = (index) => {
-      setSelectedTile((prevSelectedTile) => (prevSelectedTile === index ? null : index));
+        setSelectedTile((prevSelectedTile) => (prevSelectedTile === index ? null : index));
     };
-  
-    const getBorderColor = (index) => (selectedTile === index ? 'black' : '#ddd');
+
+    const getBorderColor = (index) => (selectedTile === index ? 'black' : '#ddd');
 
 
     return (
@@ -136,81 +136,78 @@ const CustomHostForm = () => {
                 <div>
                     <label>Invitation Theme:</label>
                     <div className="inv-theme-tiles">
-                    <div className="image-tile" style={{ border: `2px solid ${getBorderColor(0)}` }} onClick={() => handleImageSelection("wedding",0)}>
-                        <img src={themeone} alt="theme1" />
-                        <hr />
-                        <p name="wedding">wedding</p>
+                        <div className="image-tile" style={{ border: `2px solid ${getBorderColor(0)}` }} onClick={() => handleImageSelection("wedding", 0)}>
+                            <img src={themeone} alt="theme1" />
+                            <hr />
+                            <p name="wedding" className="form-tile-name">wedding</p>
+                        </div>
+                        <div className="image-tile" name="theme2" style={{ border: `2px solid ${getBorderColor(1)}` }} onClick={() => handleImageSelection("halloween", 1)}>
+                            <img src={themetwo} alt="theme2" />
+                            <hr />
+                            <p name="halloween" className="form-tile-name">halloween</p>
+                        </div>
+                        <div className="image-tile" name="theme3" style={{ border: `2px solid ${getBorderColor(2)}` }} onClick={() => handleImageSelection("birthday", 2)}>
+                            <img src={themethree} alt="theme3" />
+                            <hr />
+                            <p name="birthday" className="form-tile-name">birthday</p>
+                        </div>
+                        <div className="image-tile" name="theme4" style={{ border: `2px solid ${getBorderColor(3)}` }} onClick={() => handleImageSelection("christmas", 3)}>
+                            <img src={themefour} alt="theme4" />
+                            <hr />
+                            <p name="christmas" className="form-tile-name">christmas</p>
+                        </div>
+                        <div className="image-tile" name="theme5" style={{ border: `2px solid ${getBorderColor(4)}` }} onClick={() => handleImageSelection("roses", 4)}>
+                            <img src={themefive} alt="theme5" />
+                            <hr />
+                            <p name="roses" className="form-tile-name">roses</p>
+                        </div>
+                        <div className="image-tile" name="theme6" style={{ border: `2px solid ${getBorderColor(5)}` }} onClick={() => handleImageSelection("seminar", 5)}>
+                            <img src={themesix} alt="theme6" />
+                            <hr />
+                            <p name="seminar" className="form-tile-name">seminar</p>
+                        </div>
+                        <div className="image-tile" name="theme7" style={{ border: `2px solid ${getBorderColor(6)}` }} onClick={() => handleImageSelection("travel", 6)}>
+                            <img src={themeseven} alt="theme7" />
+                            <hr />
+                            <p name="travel" className="form-tile-name">travel</p>
+                        </div>
+                        <div className="image-tile" name="cust_theme">
+                            <label htmlFor="fileInput" className="file-input-label">
+                                <FontAwesomeIcon icon={faCirclePlus} className="faiconplus" />
+                                <input type="file" id="fileInput" className="file-input" accept="image/*" onChange={handleFileChange} />
+                            </label>
+                        </div>
+
                     </div>
-                    <div className="image-tile" name="theme2" style={{ border: `2px solid ${getBorderColor(1)}` }} onClick={() => handleImageSelection("halloween",1)}>
-                        <img src={themetwo} alt="theme2" />
-                        <hr />
-                        <p name="halloween">halloween</p>
-                    </div>
-                    <div className="image-tile" name="theme3" style={{ border: `2px solid ${getBorderColor(2)}` }} onClick={() => handleImageSelection("birthday",2)}>
-                        <img src={themethree} alt="theme3" />
-                        <hr />
-                        <p name="birthday">birthday</p>
-                    </div>
-                    <div className="image-tile" name="theme4" style={{ border: `2px solid ${getBorderColor(3)}` }} onClick={() => handleImageSelection("christmas",3)}>
-                        <img src={themefour} alt="theme4" />
-                        <hr />
-                        <p name="christmas">christmas</p>
-                    </div>
-                    <div className="image-tile" name="theme5" style={{ border: `2px solid ${getBorderColor(4)}` }} onClick={() => handleImageSelection("roses",4)}>
-                        <img src={themefive} alt="theme5" />
-                        <hr />
-                        <p name="roses">roses</p>
-                    </div>
-                    <div className="image-tile" name="theme6" style={{ border: `2px solid ${getBorderColor(5)}` }} onClick={() => handleImageSelection("seminar",5)}>
-                        <img src={themesix} alt="theme6" />
-                        <hr />
-                        <p name="seminar">seminar</p>
-                    </div>
-                    <div className="image-tile" name="theme7" style={{ border: `2px solid ${getBorderColor(6)}` }} onClick={() => handleImageSelection("travel",6)}>
-                        <img src={themeseven} alt="theme7" />
-                        <hr />
-                        <p name="travel">travel</p>
-                    </div>
-                    <div className="image-tile" name="cust_theme">
-                        <label htmlFor="fileInput" className="file-input-label">
-                            <FontAwesomeIcon icon={faCirclePlus} className="faiconplus" />
-                            <input type="file" id="fileInput" className="file-input" accept="image/*" onChange={handleFileChange} />
-                        </label>
-                    </div>
-                    
-                    </div>
-                  
+
                     {/* custom imge upload tile */}
                 </div>
 
                 {/* Questions */}
                 <div id="questions-div">
-                    <p>Questions:</p>
-                    <label>
-                        {/* checked={formData.questions.includes('question1')}  onChange={() => handleCheckboxChange('question1')}  */}
-                        <input type="checkbox" name="question1" checked={formData.question1} onChange={handleInputChange} />
-                        Do you have any dietary restrictions or food allergies we should be aware of?
-                    </label><br />
-                    <label>
-                        {/*  checked={formData.questions.includes('question2')} onChange={() => handleCheckboxChange('question2')}  */}
-                        <input type="checkbox" name="question2" checked={formData.question2} onChange={handleInputChange} />
-                        Will you be bringing a plus-one or any additional guests?
-                    </label><br />
-                    <label>
-                        {/*  checked={formData.questions.includes('question3')} onChange={() => handleCheckboxChange('question3')}  */}
-                        <input type="checkbox" name="question3" checked={formData.question3} onChange={handleInputChange}  />
-                        Is there anything specific you would like to request or bring to the event?
-                    </label><br />
-                    <label>
-                        {/* checked={formData.questions.includes('question4')}  onChange={() => handleCheckboxChange('question4')}  */}
-                        <input type="checkbox" name="question4" checked={formData.question4} onChange={handleInputChange} />
-                        Are there specific activities or components of the event that you are particularly interested in or would like to participate in?
-                    </label><br />
-                    <label>
-                        {/*  checked={formData.questions.includes('question5')} onChange={() => handleCheckboxChange('question5')}  */}
-                        <input type="checkbox" name="question5" checked={formData.question5} onChange={handleInputChange} />
-                        Are you comfortable with photographs being taken during the event? If not, is there a specific area or time you would prefer not to be photographed?
-                    </label>
+                    <h6>Questions:</h6>
+                    <div className="question-div">
+                    <input className="checkbox-question" type="checkbox" id="question1" name="question1" checked={formData.question1} onChange={handleInputChange} />
+                    <label className="checkbox-label" htmlFor="question1">Do you have any dietary restrictions or food allergies we should be aware of?</label>
+                    {/* checked={formData.questions.includes('question1')}  onChange={() => handleCheckboxChange('question1')}  */}
+                    </div><br />
+                    <div className="question-div"><input className="checkbox-question" type="checkbox" id="question2" name="question2" checked={formData.question2} onChange={handleInputChange} />
+                    <label className="checkbox-label" htmlFor="question2">Will you be bringing a plus-one or any additional guests?</label></div>
+                    {/*  checked={formData.questions.includes('question2')} onChange={() => handleCheckboxChange('question2')}  */}
+                    <br /> <div className="question-div">
+                   <input  className="checkbox-question" type="checkbox" id="question3" name="question3" checked={formData.question3} onChange={handleInputChange} />
+                    <label className="checkbox-label" htmlFor="question3">Is there anything specific you would like to request or bring to the event?</label></div>
+                    {/*  checked={formData.questions.includes('question3')} onChange={() => handleCheckboxChange('question3')}  */}
+                    <br /><div className="question-div">
+                    <input className="checkbox-question" type="checkbox" id="question4" name="question4" checked={formData.question4} onChange={handleInputChange} />
+                    <label className="checkbox-label" htmlFor="question4">Are there specific activities or components of the event that you are particularly interested in or would like to participate in?</label></div>
+                    {/* checked={formData.questions.includes('question4')}  onChange={() => handleCheckboxChange('question4')}  */}
+                   <br /> <div className="question-div">
+                    <input className="checkbox-question" type="checkbox" id="question5" name="question5" checked={formData.question5} onChange={handleInputChange} />
+                    <label className="checkbox-label" htmlFor="question5">Are you comfortable with photographs being taken during the event? If not, is there a specific area or time you would prefer not to be photographed?</label>
+                  </div>  {/*  checked={formData.questions.includes('question5')} onChange={() => handleCheckboxChange('question5')}  */}
+
+
                 </div>
 
                 <br />
